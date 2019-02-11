@@ -26,7 +26,7 @@ export default class PhoneNumber extends React.Component {
     
       <View style={styles.container}>
         <View style={styles.header} />
-        
+
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.title}>
             <Text style={styles.text}>동아리원 모집을 위해 회장님의 전화번호가 공개됩니다.</Text>
