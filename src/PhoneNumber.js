@@ -8,7 +8,9 @@ export default class PhoneNumber extends React.Component {
 
   constructor(props){
     super(props);
-    this.state={count:0};
+    this.state={
+      value:''
+    };
   }
 
   _updateCount(){
@@ -40,6 +42,8 @@ export default class PhoneNumber extends React.Component {
                 placeholderTextColor={"#999"}
                 maxLength={15}
                 onChangeText={this._updateCount.bind(this)}
+                 
+                onChangeText={(value) => this.setState({value})}
             />
         </View>
         </TouchableWithoutFeedback>
@@ -47,7 +51,7 @@ export default class PhoneNumber extends React.Component {
         <View style={styles.content}/>
         
         <View style={styles.footer}>
-        {(this.state.count==0 )?<ConfirmButtonN title={'확인'}/>:<ConfirmButton title={'확인'}/> }
+        {(this.state.value.length==0 )?<ConfirmButtonN title={'확인'}/>:<ConfirmButton title={'확인'}/> }
         </View>
       </View>
       </KeyboardAvoidingView>

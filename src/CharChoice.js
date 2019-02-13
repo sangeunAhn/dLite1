@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Image, TextInput, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, Image, TextInput, TouchableOpacity, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard} from 'react-native';
 import ConfirmButton from '../components/ConfirmButton';
 import CharButton from '../components/CharButton';
 
 export default class CharChoice extends React.Component {
   render() {
     return (
+      <KeyboardAvoidingView
+      style={styles.container}
+      behavior="padding"
+    >
       <View style={styles.container}>
         <View style={styles.header} />
 
@@ -38,12 +42,13 @@ export default class CharChoice extends React.Component {
             <View>
 
             </View>
-
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <TextInput 
                 style={styles.input} 
                 placeholder={"직접입력"}
                 placeholderTextColor={"#32B8FF"}
             />
+            </TouchableWithoutFeedback>
         </View>
 
 
@@ -54,6 +59,7 @@ export default class CharChoice extends React.Component {
             title={'선택완료'}/>
         </View>
       </View>
+      </KeyboardAvoidingView>
     );
   }
 }

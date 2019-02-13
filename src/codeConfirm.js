@@ -1,13 +1,16 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View, Image, TextInput} from 'react-native';
+import {StyleSheet, Text, View, Image, TextInput, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard} from 'react-native';
 import ConfirmButton from '../components/ConfirmButton';
 import ConfirmButtonN from '../components/ConfirmButtonN';
 
 export default class codeConfirm extends React.Component {
   constructor(props){
     super(props);
-    this.state={count:0};
+    this.state = {
+      value:''
+      };
   }
+
 
   _updateCount(){
     this.setState({
@@ -17,10 +20,15 @@ export default class codeConfirm extends React.Component {
 
   render() {
     return (
+      <KeyboardAvoidingView
+      style={styles.container}
+      behavior="padding"
+    >
       <View style={styles.container}>
         <View style={styles.header} />
 
         {/* 코드입력부분 */}
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.title}>
           <Text style={styles.codeInput}>코드입력</Text>
           <TextInput
@@ -30,18 +38,20 @@ export default class codeConfirm extends React.Component {
               returnKeyType={"done"}
               autoCorrect={false}
               underlineColorAndroid={"transparent"}
-              onChangeText={this._updateCount.bind(this)}
+               
+              onChangeText={(value) => this.setState({value})}
             />
         </View>
-
+        </TouchableWithoutFeedback>
         <View style={styles.content}/>
 
         {/* 확인 버튼 */}
         <View style={styles.footer}>
-        {(this.state.count==0 )?<ConfirmButtonN title={'확인'}/>:<ConfirmButton title={'확인'}/> }
+        {(this.state.value.length==0 )?<ConfirmButtonN title={'확인'}/>:<ConfirmButton title={'확인'}/> }
           
         </View>
       </View>
+      </KeyboardAvoidingView>
     );
   }
 }

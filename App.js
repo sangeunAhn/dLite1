@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Router, Scene } from 'react-native-router-flux';
-
+import {Contacts} from 'expo';
 import PageOne from './src/PageOne';
 import PageTwo from './src/PageTwo';
 import Main from './src/Main';
@@ -26,11 +26,11 @@ export default class App extends Component {
           <Scene key="pageTwo" component={PageTwo} hideNavBar={true} title="PageTwo"/>
           <Scene key="Main" component={Main} hideNavBar={true} title="Main"/>
           <Scene key="codeConfirm" component={codeConfirm} hideNavBar={true} title="codeConfirm" />
-          <Scene key="PhoneNumber" component={PhoneNumber} hideNavBar={true} title="PhoneNumber"initial={true}/>
+          <Scene key="PhoneNumber" component={PhoneNumber} hideNavBar={true} title="PhoneNumber"/>
           <Scene key="SignUp" component={SignUp} hideNavBar={true} title="SignUp" />
           <Scene key="CharChoice" component={CharChoice} hideNavBar={true} title="CharChoice" />
           <Scene key="SignUpRecord" component={SignUpRecord} hideNavBar={true} title="SignUpRecord"/>
-          <Scene key="RecordRegister" component={RecordRegister} hideNavBar={true} title="RecordRegister" />
+          <Scene key="RecordRegister" component={RecordRegister} hideNavBar={true} title="RecordRegister" initial={true}/>
           <Scene key="FindClub" component={FindClub} hideNavBar={true} title="FindClub" />
           <Scene key="InputSchool" component={InputSchool} hideNavBar={true} title="InputSchool"/>
           <Scene key="ClubSearch" component={ClubSearch} hideNavBar={true} title="ClubSearch"/>
